@@ -3,6 +3,8 @@ import 'package:dartania/pages/x01/x01Settings.dart';
 import 'package:dartania/widgets/textWidget.dart';
 import 'package:flutter/material.dart';
 
+import '../globals/pagetransition.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -35,7 +37,7 @@ class _HomeState extends State<Home> {
           InkWell(
             onTap: () {
 
-              Navigator.push(context, ScaleTransition5(x01()));
+              Navigator.push(context, FadeRoute1(x01()));
 
             },
             child: Container(
@@ -106,26 +108,5 @@ class _HomeState extends State<Home> {
 
 
 
-class ScaleTransition5 extends PageRouteBuilder {
-  final Widget page;
-
-  ScaleTransition5(this.page)
-      : super(
-    pageBuilder: (context, animation, anotherAnimation) => page,
-    transitionDuration: Duration(milliseconds: 1500),
-    reverseTransitionDuration: Duration(milliseconds: 500),
-    transitionsBuilder: (context, animation, anotherAnimation, child) {
-      animation = CurvedAnimation(
-          curve: Curves.fastLinearToSlowEaseIn,
-          parent: animation,
-          reverseCurve: Curves.fastOutSlowIn);
-      return ScaleTransition(
-        alignment: Alignment.center,
-        scale: animation,
-        child: child,
-      );
-    },
-  );
-}
 
 

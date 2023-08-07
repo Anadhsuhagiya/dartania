@@ -13,7 +13,7 @@ class textWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       msg,
-      style: GoogleFonts.montserrat(textStyle: TextStyle(color: txtColor , fontWeight: txtFontWeight , fontSize: txtFontSize)),
+      style: GoogleFonts.poppins(textStyle: TextStyle(color: txtColor , fontWeight: txtFontWeight , fontSize: txtFontSize)),
     );
   }
 }

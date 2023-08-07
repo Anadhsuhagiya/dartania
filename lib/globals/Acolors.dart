@@ -9,11 +9,13 @@ const Color kGreenLight = Color(0x7B056839);
 const Color kError = Color(0xffc50000);
 const Color kGrey = Color(0xffc3c3c3);
 const Color kGrey2Dark = Color(0xff454444);
-const Color kBg = Color(0xff131313);
+const Color kBg = Color(0xff056839);
 const Color kFont = Color(0x9485ffbe);
 const Color kNamePlat = Color(0xff009b4b);
-const Color kChance = Color(0xff95ffc6);
-const Color kNotChance = Color(0xff006634);
+const Color kChance = Color(0xffeaeaea);
+const Color kNotChance = Color(0xffffffff);
+const Color kChanceScore = Color(0xff404040);
+const Color kNotChanceScore = Color(0xff747373);
 
 List<Color> LoginGradient = [
   Color(0xffffc20e),

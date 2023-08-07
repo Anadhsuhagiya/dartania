@@ -960,7 +960,7 @@ class _x01GameState extends State<x01Game> {
       },
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: kBg,
+          backgroundColor: Color(0xfff4f4f4),
           appBar: PreferredSize(
             child: Container(
               child: ClipRRect(
@@ -968,9 +968,9 @@ class _x01GameState extends State<x01Game> {
                   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                   child: Container(
                     width: w,
-                    height: h * 0.05,
+                    height: h * 0.1,
                     decoration: BoxDecoration(
-                        color: kWhite.withOpacity(0.03),
+                        color: kBg,
                         boxShadow: [
                           BoxShadow(
                               color: kWhite.withOpacity(0.1),
@@ -987,7 +987,7 @@ class _x01GameState extends State<x01Game> {
                           child: textWidget(
                               msg: "$Score - $Mode $Leg",
                               txtColor: kWhite,
-                              txtFontWeight: FontWeight.bold,
+                              txtFontWeight: FontWeight.w600,
                               txtFontSize: h * 0.025),
                         ),
                         Padding(
@@ -1015,47 +1015,11 @@ class _x01GameState extends State<x01Game> {
                 ),
               ),
             ),
-            preferredSize: Size(w, h * 0.05),
+            preferredSize: Size(w, h * 0.065),
           ),
+
           body: Column(
             children: [
-              // Name Plate
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: h * 0.06,
-                      margin: EdgeInsets.only(left: 15, right: 10, top: 10),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: kWhite.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: textWidget(
-                          msg: "$FirstPlayer  -  $LegsFirst",
-                          txtColor: kWhite,
-                          txtFontWeight: FontWeight.bold,
-                          txtFontSize: h * 0.022),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: h * 0.06,
-                      margin: EdgeInsets.only(top: 10, left: 10, right: 15),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: kWhite.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: textWidget(
-                          msg: "$LegsSecond  -  $SecondPlayer",
-                          txtColor: kWhite,
-                          txtFontWeight: FontWeight.bold,
-                          txtFontSize: h * 0.022),
-                    ),
-                  ),
-                ],
-              ),
 
               // Scores
               Row(
@@ -1067,14 +1031,21 @@ class _x01GameState extends State<x01Game> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: chance ? kChance : kNotChance,
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: kBlack,
+                            blurRadius: 10,
+                            spreadRadius: -10
+                          )
+                        ]
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           textWidget(
                               msg: "$First",
-                              txtColor: chance ? kGreen : kWhite,
+                              txtColor: chance ? kChanceScore : kNotChance,
                               txtFontWeight: FontWeight.bold,
                               txtFontSize: h * 0.06),
                           SizedBox(
@@ -1120,7 +1091,7 @@ class _x01GameState extends State<x01Game> {
                         children: [
                           textWidget(
                               msg: "$Second",
-                              txtColor: chance ? kWhite : kGreen,
+                              txtColor: chance ? kNotChanceScore : kChanceScore,
                               txtFontWeight: FontWeight.bold,
                               txtFontSize: h * 0.06),
                           SizedBox(
